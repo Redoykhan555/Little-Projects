@@ -57,7 +57,7 @@ def download_thread(urls):
     print(time.clock()-x)
 
 def main():
-    q=input("search query:")
+    q="cat"#input("search query:")
     urls = get_4m_pix(query=q)
     download_thread(urls)
 main()

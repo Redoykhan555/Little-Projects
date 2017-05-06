@@ -165,10 +165,10 @@ class RTree:
 def gen_test(n):
     ans=[None]*n
     for i in range(n):
-        a=rand.randint(-200,200)
-        b=rand.randint(-200,250)
-        c=rand.randint(a,a+200)
-        d=rand.randint(b,b+200)
+        a=rand.randint(-280,200)
+        b=rand.randint(-280,220)
+        c=rand.randint(a,a+250)
+        d=rand.randint(b,b+250)
         ans[i] = ((a,b),(c,d))
     return ans
 
