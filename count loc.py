@@ -16,7 +16,7 @@ def func(p):
 def search(p):
     ans=0
     if os.path.isfile(p):
-        if  p.endswith(".py"):# or p.endswith(".h"): #p.endswith(".c") or p.endswith(".py")
+        if p.endswith(".h") or p.endswith(".c") or p.endswith(".cpp"):
             return func(p)
         return 0
     li = os.listdir(p)
@@ -24,5 +24,5 @@ def search(p):
         ans=ans+search(os.path.join(p,f))
     return ans
 
-p="C:/Users/user/Google Drive/(dum)Best Torrent Client In The world/codes"
+p="C:/Users/user/Google Drive/source codes/Stockfish-master"
 print(search(p))

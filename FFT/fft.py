@@ -1,7 +1,7 @@
 import struct
 import cmath
 import random
-
+"""
 def dct(arr):
     N=len(arr)
     ans=[0]*N
@@ -49,5 +49,3 @@ g.write(data)
 g.close()
 
 
-
-"""

@@ -3,9 +3,9 @@ import socketserver,os,os.path,socket,json
 
 from concurrent.futures import ThreadPoolExecutor
 
-h,p=socket.gethostbyname(socket.gethostname()),9090
-h="10.100.105.36"
-dst = "e:"
+h,p=socket.gethostbyname(socket.gethostname()),19090
+h="192.168.0.102"
+dst = "c:"
 #msg = "get c:/users/user/google drive/programs"
 
 def send_msg(msg):
@@ -62,7 +62,7 @@ def get_content(path):
     get_files(dic,rf)
 
 ress= time.clock()
-get_content("f:/COD4")
+get_content("h:/The.Edukators.2004.DVDRip.XviD-QiX")
 print(time.clock()-ress)
 
 
