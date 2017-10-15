@@ -5,6 +5,14 @@ import time
 driver = web.Chrome()
 d=driver
 
+def do(func,*args):
+    while True:
+        try:
+            func(*args)
+            return
+        except:
+            pass
+
 def qlogin(driver,user="",passwd=""):
     d.get("https://www.quora.com")
     email = "redoykhan555@gmail.com"
@@ -33,12 +41,59 @@ def ysearch(d,query):
     url = vid.get_attribute("href")
     d.get(url)
 
-def do(func,*args):
-    while True:
-        try:
-            func(*args)
-            return
-        except:
-            pass
 
-do(ysearch,d,"viva la vida")
+def book(q):
+    q = q.split()
+    q='+'.join(q)
+    u = f"http://93.174.95.27/search.php"
+    param = f"?req={q}&open=0&res=25&view=simple&phrase=1&column=def"
+
+    d.get(u+param)
+    tbody = d.find_element_by_xpath("/html/body/table[3]/tbody")
+    books = tbody.find_elements_by_tag_name("tr")[1:]
+    for i in range(len(books)):
+        b=books[i]
+        print(i+1)
+        ats = b.find_elements_by_tag_name("td")
+        prop = ["ID","Authors(s)","Title","Publisher","Year","pages",
+                "Language","Size","Extension"]
+        for j in range(len(prop)):
+            print(prop[j],ats[j].text)
+
+        print()
+
+    ind = int(input("Choose an index: "))
+    link = books[ind-1].find_elements_by_tag_name("td")[9]
+    url=link.find_element_by_tag_name("a").get_attribute("href")
+    d.get(url)
+    e=d.find_element_by_xpath('/html/body/table/tbody/tr/td[3]/a[1]')
+    print("Downloading....")
+    d.get(e.get_attribute("href"))
+
+
+book("functional programming")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
